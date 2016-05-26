@@ -3,7 +3,7 @@ package gclient
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/dougEfresh/gtoggl"
+	"gopkg.in/dougEfresh/gtoggl.v8"
 )
 
 // Toggl Client Definition
