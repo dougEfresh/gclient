@@ -1,7 +1,7 @@
 package gclient
 
 import (
-	"gopkg.in/dougEfresh/gtoggl.v8"
+	"github.com/dougEfresh/gtest"
 	"os"
 	"testing"
 )
