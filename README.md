@@ -1,31 +1,30 @@
-# Gtoggl 
+# Toggl Client
  
- Gtoggl is a [toggl](https://github.com/toggl/toggl_api_docs) client for the [Go](http://www.golang.org/) programming language.
+ Toggl Client interacts with [toggl](https://github.com/toggl/toggl_api_docs) client endpoint for the [Go](http://www.golang.org/) programming language.
  
-[![Build Status](https://travis-ci.org/dougEfresh/gtoggl.svg?branch=master)](https://travis-ci.org/dougEfresh/gtoggl)
-[![Go Report Card](https://goreportcard.com/badge/github.com/dougEfresh/gtoggl)](https://goreportcard.com/report/github.com/dougEfresh/gtoggl)
-[![GoDoc](https://godoc.org/github.com/dougEfresh/gtoggl?status.svg)](https://godoc.org/github.com/dougEfresh/gtoggl)
-[![Coverage Status](https://coveralls.io/repos/github/dougEfresh/gtoggl/badge.svg?branch=master)](https://coveralls.io/github/dougEfresh/gtoggl?branch=master)
-[![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/dougEfresh/gtoggl/master/LICENSE)
+[![Build Status](https://travis-ci.org/dougEfresh/toggl-client.svg?branch=master)](https://travis-ci.org/dougEfresh/toggl-client)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dougEfresh/toggl-client)](https://goreportcard.com/report/github.com/dougEfresh/toggl-client)
+[![GoDoc](https://godoc.org/github.com/dougEfresh/toggl-client?status.svg)](https://godoc.org/github.com/dougEfresh/toggl-client)
+[![Coverage Status](https://coveralls.io/repos/github/dougEfresh/toggl-client/badge.svg?branch=master)](https://coveralls.io/github/dougEfresh/toggl-client?branch=master)
+[![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/dougEfresh/toggl-client/master/LICENSE)
 
 **Example:**
 
 ```sh
-$ go get gopkg.in/dougEfresh/gtoggl.v8
+go get gopkg.in/dougEfresh/gtoggl.v8 gopkg.in/dougEfresh/toggl-client.v8
 ```
 
-You then import it with this import path:
 
 ```go
 import "gopkg.in/dougEfresh/gtoggl.v8"
-import "github/dougEfresh/gtoggl/gtimeentry"
+import "ggopkg.in/dougEfresh/toggl-client.v8"
 
 func main() {
 	thc, err := gtoggl.NewClient("token")
 	...
-	tc, err := gtimeentry.NewClient(thc)
+	tc, err := gclient.NewClient(thc)
 	...
-	timeentry,err := tc.Get(1)
+	client,err := tc.Get(1)
 	if err == nil {
 		panic(err)
 	}
