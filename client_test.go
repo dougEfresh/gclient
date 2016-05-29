@@ -3,12 +3,12 @@ package gclient
 import (
 	"github.com/dougEfresh/toggl-test"
 	"testing"
+	"gopkg.in/dougEfresh/toggl-client.v8"
 )
 
 func togglClient(t testing.T) *TClient {
 	tu := &gtest.TestUtil{}
-	client := tu.MockClient(t)
-	return client.TClient
+	return  gclient.NewClient(tu.MockClient(t))
 }
 
 func TestClientCreate(t *testing.T) {
