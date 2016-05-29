@@ -14,7 +14,6 @@
 go get gopkg.in/dougEfresh/gtoggl.v8 gopkg.in/dougEfresh/toggl-client.v8
 ```
 
-
 ```go
 import "gopkg.in/dougEfresh/gtoggl.v8"
 import "ggopkg.in/dougEfresh/toggl-client.v8"
