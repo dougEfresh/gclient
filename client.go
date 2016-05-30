@@ -36,10 +36,10 @@ type TClient struct {
 
 func (tc *TClient) List() (Clients, error) {
 	body, err := tc.thc.GetRequest(tc.endpoint)
-	var clients Clients
 	if err != nil {
-		return clients, err
+		return nil, err
 	}
+	var clients Clients
 	err = json.Unmarshal(*body, &clients)
 	return clients, err
 }
@@ -49,22 +49,12 @@ func (tc *TClient) Get(id uint64) (*Client, error) {
 }
 
 func (tc *TClient) Create(c *Client) (*Client, error) {
-	m := make(map[string]interface{})
-	m["clent"] = c
-	body, err := json.Marshal(&m)
-	if err != nil {
-		return nil, err
-	}
+	body := map[string]interface{}{"client": c}
 	return clientResponse(tc.thc.PostRequest(tc.endpoint, body))
 }
 
 func (tc *TClient) Update(c *Client) (*Client, error) {
-	m := make(map[string]interface{})
-	m["clent"] = c
-	body, err := json.Marshal(&m)
-	if err != nil {
-		return nil, err
-	}
+	body := map[string]interface{}{"client": c}
 	return clientResponse(tc.thc.PutRequest(fmt.Sprintf("%s/%d", tc.endpoint, c.Id), body))
 }
 
