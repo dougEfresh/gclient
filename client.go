@@ -49,8 +49,9 @@ func (tc *TClient) Get(id uint64) (*Client, error) {
 }
 
 func (tc *TClient) Create(c *Client) (*Client, error) {
-	put := clientCreateRequest{Client: *c}
-	body, err := json.Marshal(put)
+	m := make(map[string]interface{})
+	m["clent"] = c
+	body, err := json.Marshal(&m)
 	if err != nil {
 		return nil, err
 	}
@@ -58,8 +59,9 @@ func (tc *TClient) Create(c *Client) (*Client, error) {
 }
 
 func (tc *TClient) Update(c *Client) (*Client, error) {
-	put := clientCreateRequest{Client: *c}
-	body, err := json.Marshal(put)
+	m := make(map[string]interface{})
+	m["clent"] = c
+	body, err := json.Marshal(&m)
 	if err != nil {
 		return nil, err
 	}
@@ -71,13 +73,12 @@ func (tc *TClient) Delete(id uint64) error {
 	return err
 }
 
-type clientCreateRequest struct {
-	Client Client `json:"client"`
-}
-
 func clientResponse(response *json.RawMessage, error error) (*Client, error) {
 	if error != nil {
 		return nil, error
+	}
+	if response == nil {
+		return nil, nil
 	}
 	var tResp ghttp.TogglResponse
 	err := json.Unmarshal(*response, &tResp)
